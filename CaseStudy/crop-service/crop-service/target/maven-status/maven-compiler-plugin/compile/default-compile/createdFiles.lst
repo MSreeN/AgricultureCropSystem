@@ -1,0 +1,3 @@
+com\task\cropservice\models\Crop.class
+com\task\cropservice\repo\CropRepo.class
+com\task\cropservice\CropServiceApplication.class

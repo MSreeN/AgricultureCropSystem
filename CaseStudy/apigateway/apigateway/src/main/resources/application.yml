@@ -1,0 +1,34 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: cropservice
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/crop/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: cropservice
+                fallbackuri: forward:/cropServiceFallback
+        - id: farmerservice
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/farmer/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: farmerservice
+                fallbackuri: forward:/farmerServiceFallback

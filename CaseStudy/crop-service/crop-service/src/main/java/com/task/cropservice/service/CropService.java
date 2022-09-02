@@ -37,7 +37,7 @@ public class CropService {
             cropD.setCropType(crop.getCropType());
             cropD.setLocation(crop.getLocation());
             this.cropRepo.save(cropD);
-            return "Crop details updated";
+            return "New crop details updated";
         }
         else{
             return "Details of crop not updated";

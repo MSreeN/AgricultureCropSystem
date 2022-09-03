@@ -31,7 +31,7 @@ public class FarmerService {
 
     public String addFarmer(Farmer farmer){
         farmerRepo.save(farmer);
-        return "Farmer has been added successfully";
+        return "Farmer added successfully";
     }
 
 public String updateFarmer(Farmer farmer, String farmerEmail){

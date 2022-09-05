@@ -32,3 +32,12 @@ spring:
               args:
                 name: farmerservice
                 fallbackuri: forward:/farmerServiceFallback
+        - id: dealerservice
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/dealer/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: dealerservice
+                fallbackuri: forward:/dealerServiceFallback
